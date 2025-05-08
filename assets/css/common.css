@@ -121,7 +121,7 @@ li {
 	left: -10rem;
 	width: calc(100% + 20rem);
 	height: calc(100% + 20rem);
-	background-image: url(../img/bg-noise.png);
+	background-image: url("../img/bg-noise.png");
 	background-position: 50%;
 	animation: noise 1s steps(2) infinite;
 	content: "";
