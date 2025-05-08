@@ -391,7 +391,7 @@ footer .box-number span::after {
 }
 footer .group-contact > p {
 	z-index: 1;
-	margin-top: 40px;
+	margin-top: 10px;
 	font-size: 17px;
 }
 footer .group-copyright {
