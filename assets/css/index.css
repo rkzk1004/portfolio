@@ -162,24 +162,24 @@ header .btn-menu:hover .line span:last-child {
 	font-optical-sizing: auto;
 }
 .sc-demos .wrap-item .box-img {
-	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	overflow: hidden;
+	position: relative;
 	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 	background: var(--bgColor-dark);
 	aspect-ratio: 16/9;
 }
 .sc-demos .wrap-item .box-img::after {
-	content: "";
 	position: absolute;
 	top: 0;
-	left: 0;
 	right: 0;
 	bottom: 0;
+	left: 0;
 	background: rgba(0, 0, 0, 0.2);
 	transition: background-color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+	content: "";
 }
 .sc-demos .wrap-item:hover .box-img::after {
 	background: rgba(0, 0, 0, 0);

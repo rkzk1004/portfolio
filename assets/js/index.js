@@ -15,9 +15,15 @@ function initCommon() {
       y: 100,
       opacity: 0,
       duration: 2.2,
-      ease: "power4.out"
+      ease: "power4.out",
     })
   })
+
+  // sc-main 애니메이션 - group-animation
+  $('.sc-main .group-animation').on("click", function () {
+    const demosOffsetY = $('.sc-demos').offset().top;
+    $('html, body').animate({ scrollTop: demosOffsetY }, 1500); // 500ms는 애니메이션 시간
+  });
 
   // sc-demos 애니메이션 - group-list
   $('.sc-demos .wrap-item').each(function () {
@@ -32,7 +38,7 @@ function initCommon() {
     })
     demosAnimaion
       .from(this, { opacity: 0, duration: 2.2, ease: "power4.out" }, "a")
-      .from($demosImg, { scale: 1.3, duration: 1.2, ease: "power4.out" }, "a")
+      .from($demosImg, { scale: 1.3, duration: 1.2 }, "a")
   })
 
   // sc-feature 애니메이션 - group-list
