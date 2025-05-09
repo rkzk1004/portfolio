@@ -3,21 +3,91 @@ gsap.registerPlugin(ScrollTrigger);
 
 // 모든 해상도
 function initCommon() {
-  // sc-feature 애니메이션
+  // 공통 h2 애니메이션
+  $('.common-title').each(function () {
+    gsap.from(this, {
+      scrollTrigger: {
+        // markers: true,
+        trigger: this,
+        start: "0 88%",
+        end: "0 0"
+      },
+      y: 100,
+      opacity: 0,
+      duration: 2.2,
+      ease: "power4.out"
+    })
+  })
+
+  // sc-demos 애니메이션 - group-list
+  $('.sc-demos .wrap-item').each(function () {
+    const $demosImg = $(this).find("img");
+    const demosAnimaion = gsap.timeline({
+      scrollTrigger: {
+        // markers: true,
+        trigger: this,
+        start: "0 90%",
+        end: "0 0"
+      }
+    })
+    demosAnimaion
+      .from(this, { opacity: 0, duration: 2.2, ease: "power4.out" }, "a")
+      .from($demosImg, { scale: 1.3, duration: 1.2, ease: "power4.out" }, "a")
+  })
+
+  // sc-feature 애니메이션 - group-list
   $('.sc-feature .group-list').each(function () {
     gsap.from(this, {
       scrollTrigger: {
         // markers: true,
         trigger: this,
-        start: "0 85%",
+        start: "0 88%",
         end: "0 0"
       },
       y: 100,
       opacity: 0,
-      duration: 2,
+      duration: 1.2,
       ease: "power4.out"
     })
   })
+
+  // sc-feature 애니메이션 - and much more
+  const $featureBottomText = $(".sc-feature > p");
+  gsap.from($featureBottomText, {
+    scrollTrigger: {
+      // markers: true,
+      trigger: $featureBottomText,
+      start: "0 88%",
+      end: "0 0"
+    },
+    y: 100,
+    opacity: 0,
+    duration: 2.2,
+    ease: "power4.out"
+  })
+
+  // 푸터 - group-contact
+  const footerGroupContact = gsap.timeline({
+    scrollTrigger: {
+      // markers: true,
+      trigger: "footer .group-contact",
+      start: "0 70%",
+      end: "0 0"
+    },
+    ease: "power4.out"
+  })
+  footerGroupContact
+    .from("footer .wrap-contact", {
+      y: 50,
+      opacity: 0,
+      duration: 0.8
+    }, "a")
+    .from("footer .text", {
+      y: 50,
+      opacity: 0,
+      duration: 0.8
+    }, "a+=0.35")
+
 
   // 푸터 - back to top 클릭하면 맨 위로 이동
   $('.btn-top').on('click', function () {
@@ -89,6 +159,19 @@ function initPC() {
       });
     });
   });
+
+  // sc-main 애니메이션 - group-animation
+  gsap.to(".sc-main .group-animation", {
+    scrollTrigger: {
+      // markers: true,
+      trigger: ".sc-main",
+      start: "0 0",
+      end: "70% 0",
+      scrub: 1
+    },
+    xPercent: -100,
+    opacity: 0
+  })
 }
 
 // 모바일 전용
