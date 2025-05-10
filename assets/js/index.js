@@ -19,6 +19,44 @@ function initCommon() {
     })
   })
 
+  // 메뉴 애니메이션 - 등장/퇴장 효과
+  const menuAnimation = gsap.timeline({ paused: true })
+  menuAnimation
+    .to(".menu", { opacity: 1, duration: 0.3, ease: "power4.out" })
+    .from(".menu li", { yPercent: 30, opacity: 0, stagger: 0.1, duration: 0.2, ease: "power4.out" })
+  $('.btn-menu').on("click", function () {
+    $(this).toggleClass("on");
+    $(".deco-mouse").toggleClass("toggle")
+    $("body").toggleClass("toggle");
+    $(".menu").toggleClass("toggle");
+    if ($(".btn-menu").hasClass("on")) {
+      menuAnimation.play()
+    } else {
+      menuAnimation.reverse()
+    }
+  })
+
+  // 메뉴 애니메이션 - hover시 투명도 조절
+  // ㄴ gsap와 css가 겹치면 안되므로 스크립트로 구현
+  $(".menu li").each(function () {
+    $(this).hover(
+      function () {
+        $(this).siblings().find("a").css("opacity", "0.4")
+      },
+      function () {
+        $(this).siblings().find("a").css("opacity", "1")
+      }
+    );
+  });
+
+  // 메뉴 애니메이션 - 리스트 클릭시 사라짐
+  $(".menu li").on("click", function () {
+    menuAnimation.reverse();
+    $(".btn-menu").removeClass("on")
+    $(".menu").removeClass("toggle")
+    $("body").removeClass("toggle")
+  })
+
   // sc-main 애니메이션 - group-animation
   $('.sc-main .group-animation').on("click", function () {
     const demosOffsetY = $('.sc-demos').offset().top;
@@ -94,8 +132,7 @@ function initCommon() {
       duration: 0.8
     }, "a+=0.35")
 
-
-  // 푸터 - back to top 클릭하면 맨 위로 이동
+  // 푸터 - btn-top
   $('.btn-top').on('click', function () {
     $('html,body').animate({ scrollTop: 0 }, 400)
   })
@@ -103,7 +140,7 @@ function initCommon() {
 
 // PC 전용
 function initPC() {
-  // 공통 - 마우스 따라다니는 동그라미
+  // 마우스 동그라미 - 따라다니는 효과
   const $cursorEl = $('.deco-mouse');
   $(document).on('mousemove', function (e) {
     const mouseX = e.clientX;
@@ -114,6 +151,7 @@ function initPC() {
       duration: 0.3
     })
   })
+  // 마우스 동그라미 - 클래스 컨트롤
   $('.deco-mouse-out').each(function () {
     $(this).hover(function () {
       $cursorEl.addClass('out')
@@ -137,7 +175,7 @@ function initPC() {
     $cursorEl.removeClass('contact-in')
   })
 
-  // 공통 - 마그네틱 효과
+  // 마그네틱 효과
   const movement = 15; // 이동범위
   $('.ef-magnatic').each(function () {
     const $magnaticEl = $(this);
@@ -165,6 +203,7 @@ function initPC() {
       });
     });
   });
+
 
   // sc-main 애니메이션 - group-animation
   gsap.to(".sc-main .group-animation", {

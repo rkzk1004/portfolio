@@ -32,7 +32,7 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Long+Cang&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
 			rel="stylesheet" />
 		<!-- custom css, js -->
 		<script src="./assets/js/index.js"></script>
@@ -40,7 +40,8 @@
 	</head>
 	<body>
 		<div class="wrapper">
-			<header>
+			<!-- 헤더 -->
+			<header class="header">
 				<h1 class="ef-magnatic deco-mouse-out">
 					<a href="#">hoseong</a>
 				</h1>
@@ -54,10 +55,29 @@
 					</div>
 				</button>
 			</header>
+			<!-- 메뉴 -->
+			<div class="menu">
+				<ol class="group-list">
+					<li class="deco-mouse-out"><a href="#">Home </a></li>
+					<li class="deco-mouse-out"><a href="#project">Project</a></li>
+					<li class="deco-mouse-out"><a href="#about">About</a></li>
+					<li class="deco-mouse-out"><a href="#contact">Contact</a></li>
+				</ol>
+			</div>
 			<main>
 				<!-- main 섹션 -->
 				<section class="sc-main">
-					<h2>wanna be Specialist</h2>
+					<h2>
+						<span class="gsap">
+							<span class="ef-magnatic">和</span>
+						</span>
+						<span class="gsap">
+							<span class="ef-magnatic">和</span>
+						</span>
+						<span class="gsap">
+							<span class="ef-magnatic">和</span>
+						</span>
+					</h2>
 					<button class="group-animation deco-mouse-out">
 						<i class="fa-solid fa-chevron-down"></i>
 						<svg viewBox="0 0 500 500">
@@ -76,7 +96,7 @@
 				</section>
 
 				<!-- demos 섹션 -->
-				<section class="sc-demos">
+				<section class="sc-demos" id="project">
 					<h2 class="common-title">
 						<span>Explore Demos</span>
 						<span>Stylish & Flexible</span>
@@ -264,7 +284,7 @@
 				</section>
 
 				<!-- feature 섹션 -->
-				<section class="sc-feature">
+				<section class="sc-feature" id="about">
 					<h2 class="common-title">
 						<span>User Experience</span>
 						<span>Key Features</span>
@@ -428,7 +448,8 @@
 				</section>
 			</main>
 
-			<footer>
+			<!-- 푸터 -->
+			<footer class="footer" id="contact">
 				<div class="group-contact">
 					<a href="tel:01080076174" class="wrap-contact">
 						<span class="text-contact">Contact</span>

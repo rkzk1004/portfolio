@@ -1,7 +1,11 @@
-/* import */
+/* 임포트 */
 @import "./common.css";
 
-/* layout */
+/* 레이아웃 */
+body.toggle {
+	overflow: hidden;
+	height: 100dvh;
+}
 .wrapper {
 	z-index: -1;
 	color: #fff;
@@ -10,26 +14,26 @@ section {
 	padding: 150px 60px;
 }
 
-/* header */
-header {
+/* 헤더 */
+.header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 99;
+	z-index: 9999;
 	width: 100%;
 }
-header > * {
+.header > * {
 	position: absolute;
 	top: 30px;
 }
-header h1 {
+.header h1 {
 	top: 20px;
 	left: 16px;
 }
-header h1 a {
+.header h1 a {
 	display: flex;
 	flex-direction: column;
 	padding: 10px 40px;
@@ -40,7 +44,7 @@ header h1 a {
 	text-transform: uppercase;
 	font-optical-sizing: auto;
 }
-header .btn-menu {
+.header .btn-menu {
 	display: flex;
 	gap: 10px;
 	align-items: center;
@@ -50,26 +54,26 @@ header .btn-menu {
 	font-style: normal;
 	font-weight: bold;
 }
-header .btn-menu .text {
+.header .btn-menu .text {
 	flex: 1;
 	overflow: hidden;
 	position: relative;
 }
-header .btn-menu .text span {
+.header .btn-menu .text span {
 	display: inline-block;
 	position: relative;
 	transition: transform 0.3s;
 }
-header .btn-menu:hover .text span {
+.header .btn-menu:hover .text span {
 	transform: translateY(-100%);
 }
-header .btn-menu .text span::after {
+.header .btn-menu .text span::after {
 	position: absolute;
 	top: 100%;
 	left: 0;
-	content: "Open";
+	content: "Menu";
 }
-header .btn-menu .line {
+.header .btn-menu .line {
 	display: flex;
 	gap: 3px;
 	align-items: flex-start;
@@ -77,25 +81,90 @@ header .btn-menu .line {
 	flex-direction: column;
 	width: 30px;
 }
-header .btn-menu .line span {
+.header .btn-menu .line span {
 	height: 1px;
 	background: rgba(255, 255, 255, 0.9);
 	transition: width 0.3s;
 }
-header .btn-menu .line span:first-child {
+.header .btn-menu .line span:first-child {
 	width: 80%;
 }
-header .btn-menu .line span:last-child {
+.header .btn-menu .line span:last-child {
 	width: 60%;
 }
-header .btn-menu:hover .line span:first-child {
+.header .btn-menu:hover .line span:first-child {
 	width: 60%;
 }
-header .btn-menu:hover .line span:last-child {
+.header .btn-menu:hover .line span:last-child {
 	width: 80%;
 }
 
-/* sc-main */
+/* 메뉴 */
+.menu {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 9998;
+	background: var(--bgColor-dark);
+	opacity: 0;
+	pointer-events: none;
+}
+.menu.toggle {
+	pointer-events: auto;
+}
+.menu .group-list {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	counter-reset: ol-menu-list-counter;
+}
+.menu .group-list li a {
+	transition: opacity 0.3s;
+	display: flex;
+	align-items: center;
+	position: relative;
+	padding: 20px 0;
+	font-family: "Playfair Display", serif;
+	font-size: 62px;
+	font-style: normal;
+	font-weight: 500;
+	font-optical-sizing: auto;
+}
+.menu .group-list li a::before {
+	position: absolute;
+	top: 5px;
+	left: -46px;
+	font-size: 18px;
+	color: var(--color-description);
+	content: counter(ol-menu-list-counter, decimal-leading-zero) ".";
+	counter-increment: ol-menu-list-counter;
+	opacity: 0.4;
+}
+.menu .group-list li a::after {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	width: 40px;
+	height: 40px;
+	font-family: "Font Awesome 5 Free";
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 900;
+	content: "\f107";
+	font-variant: normal;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	transform: translateY(10px);
+}
+
+/* main섹션 */
 .sc-main {
 	display: flex;
 	align-items: center;
@@ -104,13 +173,21 @@ header .btn-menu:hover .line span:last-child {
 	height: 100dvh;
 }
 .sc-main h2 {
+	display: flex;
+	align-items: center;
 	font-family: "Playfair Display", serif;
-	font-size: 6vw;
+	font-size: 12vw;
 	font-style: normal;
 	font-weight: 700;
 	color: #999;
 	pointer-events: none;
 	font-optical-sizing: auto;
+}
+.sc-main h2 .gsap {
+	position: relative;
+}
+.sc-main h2 .ef-magnatic {
+	position: relative;
 }
 .sc-main .group-animation {
 	position: absolute;
@@ -144,7 +221,7 @@ header .btn-menu:hover .line span:last-child {
 	fill: #fff;
 }
 
-/* sc-demos */
+/* demos섹션 */
 .sc-demos {
 	background: var(--bgColor-bright);
 }
@@ -216,7 +293,7 @@ header .btn-menu:hover .line span:last-child {
 	color: var(--color-description);
 }
 
-/* sc-feature */
+/* feature섹션 */
 .sc-feature .group-list {
 	display: grid;
 	max-width: 1280px;
@@ -264,14 +341,14 @@ header .btn-menu:hover .line span:last-child {
 	text-align: center;
 }
 
-/* footer */
-footer {
+/* 푸터 */
+.footer {
 	background: var(--bgColor-dark);
 	font-family: "Playfair Display", serif;
 	font-style: normal;
 	font-weight: 500;
 }
-footer .group-contact {
+.footer .group-contact {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -279,7 +356,7 @@ footer .group-contact {
 	position: relative;
 	padding: 40px 0 150px;
 }
-footer .wrap-contact {
+.footer .wrap-contact {
 	overflow: hidden;
 	position: relative;
 	z-index: 1;
@@ -289,35 +366,35 @@ footer .wrap-contact {
 	white-space: nowrap;
 	font-optical-sizing: auto;
 }
-footer .wrap-contact > * {
+.footer .wrap-contact > * {
 	display: flex;
 	align-items: center;
 	width: 100%;
 	height: 100%;
 	transition: transform 0.6s cubic-bezier(0.51, 0.57, 0.17, 1);
 }
-footer .wrap-contact:hover > * {
+.footer .wrap-contact:hover > * {
 	transform: translateY(-100%);
 }
-footer .wrap-contact > span {
+.footer .wrap-contact > span {
 	justify-content: center;
 	opacity: 0.4;
 }
-footer .box-number {
+.footer .box-number {
 	position: absolute;
 	top: 100%;
 	left: 0;
 }
-footer .box-number span {
+.footer .box-number span {
 	display: flex;
 	position: relative;
 	animation: contact 3s infinite linear;
 	animation-play-state: paused;
 }
-footer .wrap-contact:hover .box-number span {
+.footer .wrap-contact:hover .box-number span {
 	animation-play-state: running;
 }
-footer .box-number span::after {
+.footer .box-number span::after {
 	display: inline-block;
 	position: relative;
 	top: 60px;
@@ -328,46 +405,47 @@ footer .box-number span::after {
 	content: "";
 	border-radius: 50%;
 }
-footer .group-contact > p {
+.footer .group-contact > p {
 	z-index: 1;
 	margin-top: 10px;
 	font-size: 17px;
 }
-footer .group-copyright {
+.footer .group-copyright {
 	position: relative;
 	padding: 30px 60px 60px;
-	font-size: 14px;
+	font-size: 17px;
 }
-footer .group-copyright .btn-top {
+.footer .group-copyright .btn-top {
 	display: flex;
 	gap: 15px;
 	align-items: center;
 	overflow: hidden;
 	font-family: "Playfair Display", serif;
+	font-size: 17px;
 	font-style: normal;
 	font-weight: 500;
 	font-optical-sizing: auto;
 }
-footer .group-copyright .btn-top > span {
+.footer .group-copyright .btn-top > span {
 	position: relative;
 	transition: transform 0.3s;
 }
-footer .group-copyright .btn-top > span::before {
+.footer .group-copyright .btn-top > span::before {
 	position: absolute;
 	top: 100%;
 	left: 0;
 	content: "Back to top";
 }
-footer .group-copyright .btn-top:hover > span {
+.footer .group-copyright .btn-top:hover > span {
 	transform: translateY(-105%);
 }
-footer .group-copyright .btn-top .line {
+.footer .group-copyright .btn-top .line {
 	overflow: hidden;
 	position: relative;
 	width: 40px;
 	height: 1px;
 }
-footer .group-copyright .btn-top .line span {
+.footer .group-copyright .btn-top .line span {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -375,7 +453,7 @@ footer .group-copyright .btn-top .line span {
 	height: 1px;
 	background: #fff;
 }
-footer .group-copyright .btn-top .line span::before {
+.footer .group-copyright .btn-top .line span::before {
 	position: absolute;
 	top: 0;
 	left: -200%;
@@ -384,10 +462,10 @@ footer .group-copyright .btn-top .line span::before {
 	background: #fff;
 	content: "";
 }
-footer .group-copyright .btn-top:hover .line span {
+.footer .group-copyright .btn-top:hover .line span {
 	animation: line 0.4s;
 }
-footer .group-copyright small {
+.footer .group-copyright small {
 	position: absolute;
 	bottom: 60px;
 	left: 50%;

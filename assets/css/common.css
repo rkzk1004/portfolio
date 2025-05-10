@@ -110,10 +110,10 @@ li {
 	overflow: hidden;
 	position: fixed;
 	top: 0;
+	right: 0;
+	bottom: 0;
 	left: 0;
-	z-index: 9999;
-	width: 100%;
-	height: 100dvh;
+	z-index: 99999;
 	pointer-events: none;
 }
 .deco-bg:before {
@@ -145,6 +145,9 @@ li {
 	pointer-events: none;
 	border-radius: 50%;
 	transform: translate(-50%, -50%);
+}
+.deco-mouse.toggle {
+	z-index: 9999;
 }
 .deco-mouse .effect-demo {
 	display: flex;
@@ -262,8 +265,11 @@ li {
 	}
 }
 
-/* fonts - playfair display */
+/* fonts */
 /* font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
   font-weight: 500;
+  font-style: normal; */
+/* font-family: "Long Cang", cursive;
+  font-weight: 400;
   font-style: normal; */
