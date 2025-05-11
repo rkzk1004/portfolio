@@ -3,6 +3,19 @@ gsap.registerPlugin(ScrollTrigger);
 
 // 모든 해상도
 function initCommon() {
+  // 인트로 애니메이션
+  const introAnimation = gsap.timeline({ delay: 1 })
+  introAnimation
+    .set("body", { height: "100dvh", overflow: "hidden" })
+    .to($(".deco-intro span"), { opacity: 1, duration: 1, delay: 0.5 })
+    .to($(".deco-intro span"), { opacity: 0, duration: 1, delay: 1 })
+    .to($(".deco-intro"), { clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)", delay: 0.5, duration: 1 })
+    .from(".header", { opacity: 0, duration: 0.3, delay: 0.3, ease: "power4.out" }, "b")
+    .from(".sc-main h2", { opacity: 0, duration: 0.5, ease: "power4.out" }, "b+=0.5")
+    .from(".sc-main .btn-viewdemo svg", { opacity: 0, duration: 0.5, ease: "power4.out" }, "b+=0.7")
+    .from(".sc-main .btn-viewdemo i", { opacity: 0, duration: 0.5, ease: "power4.out" }, "b+=0.8")
+    .set("body", { height: "auto", overflow: "auto" })
+
   // 공통 h2 애니메이션
   $('.common-title').each(function () {
     gsap.from(this, {
@@ -55,6 +68,20 @@ function initCommon() {
     $(".btn-menu").removeClass("on")
     $(".menu").removeClass("toggle")
     $("body").removeClass("toggle")
+  })
+
+  // sc-main 애니메이션 - h2
+  $(".sc-main h2 .ef-magnatic").each(function () {
+    gsap.to(this, {
+      scrollTrigger: {
+        // markers: true,
+        trigger: ".sc-main",
+        start: "0 0",
+        end: "40% 0",
+        scrub: 1
+      },
+      opacity: 0,
+    })
   })
 
   // sc-main 애니메이션 - btn-viewdemo

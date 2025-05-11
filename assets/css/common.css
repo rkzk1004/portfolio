@@ -39,11 +39,11 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-	background: #fff;
+	background: var(--bgColor-dark);
 }
 
 body::-webkit-scrollbar-thumb {
-	background-color: #111;
+	background-color: #999;
 	border-radius: 6px;
 }
 img,
@@ -103,7 +103,7 @@ li {
 	color: var(--color-subtitle);
 }
 
-/* noise bg */
+/* 노이즈 배경 */
 .deco-bg {
 	overflow: hidden;
 	position: fixed;
@@ -127,7 +127,7 @@ li {
 	pointer-events: none;
 }
 
-/* deco-mouse */
+/* 커서따라다니는 동그라미 */
 .deco-mouse {
 	position: fixed;
 	top: 0;
@@ -202,7 +202,30 @@ li {
 	height: 350px;
 }
 
-/* animation */
+/* 인트로영역 */
+.deco-intro {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 10001;
+	background: var(--bgColor-dark);
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+.deco-intro span {
+	font-family: "Playfair Display", serif;
+	font-size: 40px;
+	font-weight: lighter;
+	color: #fff;
+	text-transform: uppercase;
+	opacity: 0;
+}
+
+/* css애니메이션 */
 @keyframes circle {
 	0% {
 		transform: rotate(0);

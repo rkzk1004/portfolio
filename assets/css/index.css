@@ -3,8 +3,8 @@
 
 /* 레이아웃 */
 body.toggle {
-	overflow: hidden;
-	height: 100dvh;
+	overflow: hidden !important;
+	height: 100dvh !important;
 }
 .wrapper {
 	z-index: -1;
@@ -182,8 +182,8 @@ section {
 }
 .sc-main h2 .text {
 	padding: 30px;
-	cursor: pointer;
 	transition: opacity 0.3s;
+	cursor: pointer;
 }
 .sc-main img {
 	width: 20vw;
