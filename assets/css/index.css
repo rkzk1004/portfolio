@@ -39,10 +39,8 @@ section {
 	padding: 10px 40px;
 	font-family: "Playfair Display", serif;
 	font-size: 22px;
-	font-style: normal;
 	font-weight: bold;
 	text-transform: uppercase;
-	font-optical-sizing: auto;
 }
 .header .btn-menu {
 	display: flex;
@@ -51,7 +49,6 @@ section {
 	right: 56px;
 	font-family: "Playfair Display", serif;
 	font-size: 18px;
-	font-style: normal;
 	font-weight: bold;
 }
 .header .btn-menu .text {
@@ -111,8 +108,8 @@ section {
 	left: 0;
 	z-index: 9998;
 	background: var(--bgColor-dark);
-	opacity: 0;
 	pointer-events: none;
+	opacity: 0;
 }
 .menu.toggle {
 	pointer-events: auto;
@@ -125,16 +122,14 @@ section {
 	counter-reset: ol-menu-list-counter;
 }
 .menu .group-list li a {
-	transition: opacity 0.3s;
 	display: flex;
 	align-items: center;
 	position: relative;
 	padding: 20px 0;
 	font-family: "Playfair Display", serif;
 	font-size: 62px;
-	font-style: normal;
-	font-weight: 500;
-	font-optical-sizing: auto;
+	font-weight: lighter;
+	transition: opacity 0.3s;
 }
 .menu .group-list li a::before {
 	position: absolute;
@@ -155,7 +150,6 @@ section {
 	height: 40px;
 	font-family: "Font Awesome 5 Free";
 	font-size: 18px;
-	font-style: normal;
 	font-weight: 900;
 	content: "\f107";
 	font-variant: normal;
@@ -170,31 +164,38 @@ section {
 	align-items: center;
 	justify-content: center;
 	position: relative;
+	position: relative;
 	height: 100dvh;
 }
 .sc-main h2 {
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
+	position: absolute;
+	top: 50%;
+	left: 50%;
 	font-family: "Playfair Display", serif;
-	font-size: 12vw;
-	font-style: normal;
-	font-weight: 700;
-	color: #999;
+	font-size: 110px;
+	font-weight: 300;
+	color: #fff;
+	transform: translate(-50%, -50%);
+}
+.sc-main h2 .text {
+	padding: 30px;
+	cursor: pointer;
+	transition: opacity 0.3s;
+}
+.sc-main img {
+	width: 20vw;
+	height: 25.31vw;
 	pointer-events: none;
-	font-optical-sizing: auto;
 }
-.sc-main h2 .gsap {
-	position: relative;
-}
-.sc-main h2 .ef-magnatic {
-	position: relative;
-}
-.sc-main .group-animation {
+.sc-main .btn-viewdemo {
 	position: absolute;
 	bottom: -12%;
 	left: 56px;
 }
-.sc-main .group-animation i {
+.sc-main .btn-viewdemo i {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -202,10 +203,9 @@ section {
 	transition: color 0.3s;
 	transform: translate(-50%, -50%);
 }
-.sc-main .group-animation text {
+.sc-main .btn-viewdemo text {
 	font-family: "Playfair Display", serif;
 	font-size: 36px;
-	font-style: normal;
 	font-weight: 500;
 	text-transform: uppercase;
 	letter-spacing: 29px;
@@ -213,10 +213,9 @@ section {
 	transition: fill 0.3s;
 	fill: rgba(255, 255, 255, 0.5);
 	transform-origin: center;
-	font-optical-sizing: auto;
 }
-.sc-main .group-animation:hover i,
-.sc-main .group-animation:hover text {
+.sc-main .btn-viewdemo:hover i,
+.sc-main .btn-viewdemo:hover text {
 	color: #fff;
 	fill: #fff;
 }
@@ -234,9 +233,7 @@ section {
 }
 .sc-demos .wrap-item {
 	font-family: "Playfair Display", serif;
-	font-style: normal;
-	font-weight: 500;
-	font-optical-sizing: auto;
+	font-weight: lighter;
 }
 .sc-demos .wrap-item .box-img {
 	display: flex;
@@ -345,7 +342,6 @@ section {
 .footer {
 	background: var(--bgColor-dark);
 	font-family: "Playfair Display", serif;
-	font-style: normal;
 	font-weight: 500;
 }
 .footer .group-contact {
@@ -364,7 +360,6 @@ section {
 	height: 200px;
 	font-size: 96px;
 	white-space: nowrap;
-	font-optical-sizing: auto;
 }
 .footer .wrap-contact > * {
 	display: flex;
@@ -422,9 +417,7 @@ section {
 	overflow: hidden;
 	font-family: "Playfair Display", serif;
 	font-size: 17px;
-	font-style: normal;
-	font-weight: 500;
-	font-optical-sizing: auto;
+	font-weight: lighter;
 }
 .footer .group-copyright .btn-top > span {
 	position: relative;

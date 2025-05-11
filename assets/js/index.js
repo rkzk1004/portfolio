@@ -57,8 +57,8 @@ function initCommon() {
     $("body").removeClass("toggle")
   })
 
-  // sc-main 애니메이션 - group-animation
-  $('.sc-main .group-animation').on("click", function () {
+  // sc-main 애니메이션 - btn-viewdemo
+  $('.sc-main .btn-viewdemo').on("click", function () {
     const demosOffsetY = $('.sc-demos').offset().top;
     $('html, body').animate({ scrollTop: demosOffsetY }, 1500); // 500ms는 애니메이션 시간
   });
@@ -81,10 +81,10 @@ function initCommon() {
 
   // sc-feature 애니메이션 - group-list
   $('.sc-feature .group-list').each(function () {
-    gsap.from(this, {
+    gsap.from($(this), {
       scrollTrigger: {
         // markers: true,
-        trigger: this,
+        trigger: $(this),
         start: "0 88%",
         end: "0 0"
       },
@@ -114,7 +114,7 @@ function initCommon() {
   const footerGroupContact = gsap.timeline({
     scrollTrigger: {
       // markers: true,
-      trigger: "footer .group-contact",
+      trigger: ".footer .group-contact",
       start: "0 70%",
       end: "0 0"
     },
@@ -152,11 +152,15 @@ function initPC() {
     })
   })
   // 마우스 동그라미 - 클래스 컨트롤
+  // ㄴ fade-out : 작아지면서 페이드아웃
+  // ㄴ scale-up : 스케일 업
+  // ㄴ demo-in : demos 리스트에 hover
+  // ㄴ contact-in : footer contact 영역에 hover
   $('.deco-mouse-out').each(function () {
     $(this).hover(function () {
-      $cursorEl.addClass('out')
+      $cursorEl.addClass('fade-out')
     }, function () {
-      $cursorEl.removeClass('out')
+      $cursorEl.removeClass('fade-out')
     })
   })
   $('.btn-menu').hover(function () {
@@ -204,9 +208,8 @@ function initPC() {
     });
   });
 
-
-  // sc-main 애니메이션 - group-animation
-  gsap.to(".sc-main .group-animation", {
+  // sc-main 애니메이션 - btn-viewdemo
+  gsap.to(".sc-main .btn-viewdemo", {
     scrollTrigger: {
       // markers: true,
       trigger: ".sc-main",
@@ -217,6 +220,16 @@ function initPC() {
     xPercent: -100,
     opacity: 0
   })
+
+  // sc-main 애니메이션 - 텍스트 hover시 opacity조절
+  $(".sc-main .text").hover(
+    function () {
+      $(".sc-main .text").not(this).css({ opacity: 0.4, filter: "blur(3px)" });
+    },
+    function () {
+      $(".sc-main .text").css({ opacity: 1, filter: "blur(0px)" });
+    }
+  );
 }
 
 // 모바일 전용

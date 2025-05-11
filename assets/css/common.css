@@ -93,15 +93,13 @@ li {
 	flex-direction: column;
 	width: 100%;
 	font-family: "Playfair Display", serif;
-	font-style: normal;
-	font-weight: 500;
-	font-optical-sizing: auto;
+	font-weight: lighter;
 }
 .common-title span {
-	font-size: calc(28px + 2vw);
+	font-size: 66px;
 }
 .common-title span:first-child {
-	font-size: calc(16px + 0.3vw);
+	font-size: 22px;
 	color: var(--color-subtitle);
 }
 
@@ -182,7 +180,7 @@ li {
 	height: 100%;
 	object-fit: cover;
 }
-.deco-mouse.out {
+.deco-mouse.fade-out {
 	width: 0;
 	height: 0;
 	opacity: 0;
@@ -267,9 +265,5 @@ li {
 
 /* fonts */
 /* font-family: "Playfair Display", serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal; */
-/* font-family: "Long Cang", cursive;
-  font-weight: 400;
-  font-style: normal; */
+  font-weight: lighter;
+*/
