@@ -82,7 +82,7 @@ function initCommon() {
       scrub: 1,
     },
     stagger: 0.1,
-    yPercent: -50,
+    yPercent: -80,
     opacity: 0,
   })
 
