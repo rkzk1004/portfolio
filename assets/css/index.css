@@ -170,25 +170,34 @@ section {
 .sc-main h2 {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	flex-direction: column;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	font-family: "Playfair Display", serif;
-	font-size: 110px;
+	font-size: 6vw;
 	font-weight: 300;
 	color: #fff;
+	text-transform: uppercase;
+	white-space: nowrap;
 	transform: translate(-50%, -50%);
 }
-.sc-main h2 .text {
-	padding: 30px;
-	transition: opacity 0.3s;
+.sc-main h2 .wrap-text {
+	display: flex;
+	gap: 1vw;
+	align-items: center;
+	padding: 0.5vw 1vw;
 	cursor: pointer;
+	transition: opacity 0.3s;
 }
-.sc-main img {
-	width: 20vw;
-	height: 25.31vw;
-	pointer-events: none;
+.sc-main h2 .wrap-text img {
+	width: 5.2vw;
+	margin-top: 0.5vw;
+	transition: transform 1s;
+	aspect-ratio: 1/1;
+}
+.sc-main h2 .wrap-text:hover img {
+	transform: rotate(180deg);
 }
 .sc-main .btn-viewdemo {
 	position: absolute;
@@ -205,10 +214,10 @@ section {
 }
 .sc-main .btn-viewdemo text {
 	font-family: "Playfair Display", serif;
-	font-size: 36px;
+	font-size: 24px;
 	font-weight: 500;
 	text-transform: uppercase;
-	letter-spacing: 29px;
+	letter-spacing: 19px;
 	animation: circle 6s infinite linear;
 	transition: fill 0.3s;
 	fill: rgba(255, 255, 255, 0.5);
@@ -228,8 +237,11 @@ section {
 	display: grid;
 	grid-column-gap: 3vw;
 	grid-row-gap: 5vw;
-	margin: 150px 4vw 0 4vw;
+	margin: 75px 35px 0 35px;
 	grid-template-columns: repeat(3, 1fr);
+}
+.sc-demos .group-list:nth-child(2) {
+	margin-top: 150px;
 }
 .sc-demos .wrap-item {
 	font-family: "Playfair Display", serif;
