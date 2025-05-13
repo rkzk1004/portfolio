@@ -16,6 +16,7 @@ function initCommon() {
   //   .from(".sc-main h2", { opacity: 0, duration: 0.5, ease: "power4.out" }, "b+=0.5")
   //   .from(".sc-main .btn-viewdemo svg", { opacity: 0, duration: 0.5, ease: "power4.out" }, "b+=0.7")
   //   .from(".sc-main .btn-viewdemo i", { opacity: 0, duration: 0.5, ease: "power4.out" }, "b+=0.8")
+  //   .from(".sc-main .btn-contact", { opacity: 0, duration: 0.5, ease: "power4.out" }, "b+=0.8")
   //   .set("body", { height: "auto", overflow: "auto" })
 
   // 공통 h2 애니메이션
@@ -81,16 +82,10 @@ function initCommon() {
       end: "50% 0",
       scrub: 1,
     },
-    stagger: 0.1,
+    stagger: 0.2,
     yPercent: -80,
     opacity: 0,
   })
-
-  // sc-main 애니메이션 - btn-viewdemo
-  $('.sc-main .btn-viewdemo').on("click", function () {
-    const demosOffsetY = $('.sc-demos').offset().top;
-    $('html, body').animate({ scrollTop: demosOffsetY }, 1500); // 500ms는 애니메이션 시간
-  });
 
   // sc-demos 애니메이션 - group-list
   $('.sc-demos .group-list').each(function () {
@@ -240,6 +235,16 @@ function initPC() {
     });
   });
 
+  // sc-main 애니메이션 - 텍스트 hover시 opacity조절
+  $(".sc-main .wrap-text").hover(
+    function () {
+      $(".sc-main .wrap-text").not(this).css({ opacity: 0.4, filter: "blur(3px)" });
+    },
+    function () {
+      $(".sc-main .wrap-text").css({ opacity: 1, filter: "blur(0px)" });
+    }
+  );
+
   // sc-main 애니메이션 - btn-viewdemo
   gsap.to(".sc-main .btn-viewdemo", {
     scrollTrigger: {
@@ -253,15 +258,30 @@ function initPC() {
     opacity: 0
   })
 
-  // sc-main 애니메이션 - 텍스트 hover시 opacity조절
-  $(".sc-main .wrap-text").hover(
-    function () {
-      $(".sc-main .wrap-text").not(this).css({ opacity: 0.4, filter: "blur(3px)" });
+  // sc-main 애니메이션 - btn-viewdemo클릭시 스크롤 이동
+  $('.sc-main .btn-viewdemo').on("click", function () {
+    const demosOffsetY = $('.sc-demos').offset().top;
+    $('html, body').animate({ scrollTop: demosOffsetY }, 1500); // 500ms는 애니메이션 시간
+  });
+
+  // sc-main 애니메이션 - btn-contact
+  gsap.to(".sc-main .btn-contact", {
+    scrollTrigger: {
+      // markers: true,
+      trigger: ".sc-main",
+      start: "0 0",
+      end: "70% 0",
+      scrub: 1
     },
-    function () {
-      $(".sc-main .wrap-text").css({ opacity: 1, filter: "blur(0px)" });
-    }
-  );
+    xPercent: 100,
+    opacity: 0
+  })
+
+  // sc-main 애니메이션 - btn-contact클릭시 스크롤 이동
+  $('.sc-main .btn-contact').on("click", function () {
+    const footerOffsetY = $('.footer').offset().top;
+    $('html, body').animate({ scrollTop: footerOffsetY }, 1000); // 500ms는 애니메이션 시간
+  });
 }
 
 // =============================
