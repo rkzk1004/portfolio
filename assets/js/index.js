@@ -23,7 +23,7 @@ function initCommon() {
   $('.common-title').each(function () {
     gsap.from(this, {
       scrollTrigger: {
-        markers: true,
+        // markers: true,
         trigger: this,
         start: "0 88%",
         end: "0 0"
@@ -76,7 +76,7 @@ function initCommon() {
   // sc-main 애니메이션 - gruop-text
   gsap.to(".sc-main h2 .group-text", {
     scrollTrigger: {
-      markers: true,
+      // markers: true,
       trigger: ".sc-main",
       start: "0 0",
       end: "50% 0",
