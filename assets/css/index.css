@@ -191,7 +191,9 @@ section {
 	align-items: center;
 	padding: 0.5vw 1vw;
 	transition: opacity 0.3s;
-	cursor: pointer;
+}
+.sc-main h2 .wrap-text span {
+	pointer-events: none;
 }
 .sc-main h2 .wrap-text img {
 	width: 5.2vw;
