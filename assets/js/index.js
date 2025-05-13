@@ -5,11 +5,6 @@ gsap.registerPlugin(ScrollTrigger);
 // 모든 해상도
 // ==============================
 function initCommon() {
-  // 모든 리소스가 로드된 후에 실행
-  $(window).on("load", function () {
-    ScrollTrigger.refresh();
-  });
-
   // 인트로 애니메이션
   // const introAnimation = gsap.timeline({ delay: 1 })
   // introAnimation
