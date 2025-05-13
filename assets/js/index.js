@@ -23,7 +23,7 @@ function initCommon() {
   $('.common-title').each(function () {
     gsap.from(this, {
       scrollTrigger: {
-        // markers: true,
+        markers: true,
         trigger: this,
         start: "0 88%",
         end: "0 0"
