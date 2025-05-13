@@ -1,10 +1,10 @@
-// gsap 스크롤트리거 등록
-gsap.registerPlugin(ScrollTrigger);
-
 // ==============================
 // 모든 해상도
 // ==============================
 function initCommon() {
+  // gsap 스크롤트리거 등록
+  gsap.registerPlugin(ScrollTrigger);
+
   // 인트로 애니메이션
   // const introAnimation = gsap.timeline({ delay: 1 })
   // introAnimation
