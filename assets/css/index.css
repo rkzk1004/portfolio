@@ -204,8 +204,8 @@ section {
 }
 .sc-main .btn-viewdemo {
 	position: absolute;
-	bottom: -12%;
-	left: -5%;
+	bottom: -4vw;
+	left: -4vw;
 }
 .sc-main .btn-viewdemo i {
 	position: absolute;

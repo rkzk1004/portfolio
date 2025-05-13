@@ -213,6 +213,7 @@ li {
 	left: 0;
 	z-index: 10001;
 	background: var(--bgColor-dark);
+	pointer-events: none;
 	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 .deco-intro span {
