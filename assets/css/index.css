@@ -278,7 +278,7 @@ section {
 	justify-content: center;
 	flex-direction: column;
 }
-.sc-main .btn-contact span {
+.sc-main .btn-contact .text {
 	font-family: "Playfair Display", serif;
 	font-size: 18px;
 	font-weight: lighter;
@@ -290,7 +290,6 @@ section {
 	width: 20px;
 	transition: width 0.3s;
 	aspect-ratio: 1/1;
-	transform: translateX(2px);
 }
 .sc-main .btn-contact:hover img {
 	width: 30px;
