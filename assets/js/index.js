@@ -12,18 +12,18 @@ function initCommon() {
   });
 
   // 인트로 애니메이션
-  // const introAnimation = gsap.timeline({ delay: 1 })
-  // introAnimation
-  //   .set("body", { height: "100dvh", overflow: "hidden" })
-  //   .to($(".deco-intro span"), { opacity: 1, duration: 1, delay: 0.5 })
-  //   .to($(".deco-intro span"), { opacity: 0, duration: 1, delay: 1 })
-  //   .to($(".deco-intro"), { clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)", delay: 0.5, duration: 0.3 })
-  //   .from(".header", { opacity: 0, duration: 1, delay: 0.3, ease: "power4.out" }, "b")
-  //   .from(".sc-main h2", { opacity: 0, duration: 1, ease: "power4.out" }, "b+=0.5")
-  //   .from(".sc-main .btn-viewdemo svg", { opacity: 0, duration: 0.3, ease: "power4.out" }, "b+=0.7")
-  //   .from(".sc-main .btn-viewdemo i", { opacity: 0, duration: 0.3, ease: "power4.out" }, "b+=0.8")
-  //   .from(".sc-main .btn-contact .group-el", { opacity: 0, duration: 0.3, ease: "power4.out" }, "b+=0.8")
-  //   .set("body", { height: "auto", overflow: "auto" })
+  const introAnimation = gsap.timeline({ delay: 1 })
+  introAnimation
+    .set("body", { height: "100dvh", overflow: "hidden" })
+    .to($(".deco-intro span"), { opacity: 1, duration: 1, delay: 0.5 })
+    .to($(".deco-intro span"), { opacity: 0, duration: 1, delay: 1 })
+    .to($(".deco-intro"), { clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)", delay: 0.5, duration: 0.3 })
+    .from(".header", { opacity: 0, duration: 1, delay: 0.3, ease: "power4.out" }, "b")
+    .from(".sc-main h2", { opacity: 0, duration: 1, ease: "power4.out" }, "b+=0.5")
+    .from(".sc-main .btn-viewdemo svg", { opacity: 0, duration: 0.3, ease: "power4.out" }, "b+=0.7")
+    .from(".sc-main .btn-viewdemo i", { opacity: 0, duration: 0.3, ease: "power4.out" }, "b+=0.8")
+    .from(".sc-main .btn-contact .group-el", { opacity: 0, duration: 0.3, ease: "power4.out" }, "b+=0.8")
+    .set("body", { height: "auto", overflow: "auto" })
 
   // 공통 h2 애니메이션
   $('.common-title').each(function () {
