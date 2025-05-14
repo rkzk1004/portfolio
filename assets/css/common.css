@@ -200,6 +200,11 @@ li {
 	width: 350px;
 	height: 350px;
 }
+@media (max-width: 1025px) {
+	.deco-mouse {
+		display: none;
+	}
+}
 
 /* 인트로영역 */
 .deco-intro {

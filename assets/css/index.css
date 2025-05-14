@@ -337,6 +337,13 @@ section {
 	color: var(--color-description);
 }
 
+@media (max-width: 1025px) {
+	.sc-demos .group-list {
+		/* grid-template-columns: repeat(2, 1fr); */
+		margin: 75px 0 0 0;
+	}
+}
+
 /* feature섹션 */
 .sc-feature .group-list {
 	display: grid;

@@ -6,24 +6,24 @@ function initCommon() {
   gsap.registerPlugin(ScrollTrigger);
 
   // 새로고침시 스크롤을 맨 위로 이동
-  history.scrollRestoration = 'manual';
-  $(window).on("beforeunload", function () {
-    window.scrollTo(0, 0);
-  });
+  // history.scrollRestoration = 'manual';
+  // $(window).on("beforeunload", function () {
+  //   window.scrollTo(0, 0);
+  // });
 
   // 인트로 애니메이션
-  const introAnimation = gsap.timeline({ delay: 1 })
-  introAnimation
-    .set("body", { height: "100dvh", overflow: "hidden" })
-    .to($(".deco-intro span"), { opacity: 1, duration: 1, delay: 0.5 })
-    .to($(".deco-intro span"), { opacity: 0, duration: 1, delay: 1 })
-    .to($(".deco-intro"), { clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)", delay: 0.5, duration: 0.3 })
-    .from(".header", { opacity: 0, duration: 1, delay: 0.3, ease: "power4.out" }, "b")
-    .from(".sc-main h2", { opacity: 0, duration: 1, ease: "power4.out" }, "b+=0.5")
-    .from(".sc-main .btn-viewdemo svg", { opacity: 0, duration: 0.3, ease: "power4.out" }, "b+=0.7")
-    .from(".sc-main .btn-viewdemo i", { opacity: 0, duration: 0.3, ease: "power4.out" }, "b+=0.8")
-    .from(".sc-main .btn-contact .group-el", { opacity: 0, duration: 0.3, ease: "power4.out" }, "b+=0.8")
-    .set("body", { height: "auto", overflow: "auto" })
+  // const introAnimation = gsap.timeline({ delay: 1 })
+  // introAnimation
+  //   .set("body", { height: "100dvh", overflow: "hidden" })
+  //   .to($(".deco-intro span"), { opacity: 1, duration: 1, delay: 0.5 })
+  //   .to($(".deco-intro span"), { opacity: 0, duration: 1, delay: 1 })
+  //   .to($(".deco-intro"), { clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)", delay: 0.5, duration: 0.3 })
+  //   .from(".header", { opacity: 0, duration: 1, delay: 0.3, ease: "power4.out" }, "b")
+  //   .from(".sc-main h2", { opacity: 0, duration: 1, ease: "power4.out" }, "b+=0.5")
+  //   .from(".sc-main .btn-viewdemo svg", { opacity: 0, duration: 0.3, ease: "power4.out" }, "b+=0.7")
+  //   .from(".sc-main .btn-viewdemo i", { opacity: 0, duration: 0.3, ease: "power4.out" }, "b+=0.8")
+  //   .from(".sc-main .btn-contact .group-el", { opacity: 0, duration: 0.3, ease: "power4.out" }, "b+=0.8")
+  //   .set("body", { height: "auto", overflow: "auto" })
 
   // 공통 h2 애니메이션
   $('.common-title').each(function () {
@@ -92,6 +92,44 @@ function initCommon() {
     yPercent: -80,
     opacity: 0,
   })
+
+  // sc-main 애니메이션 - btn-viewdemo
+  gsap.to(".sc-main .btn-viewdemo", {
+    scrollTrigger: {
+      // markers: true,
+      trigger: ".sc-main",
+      start: "0 0",
+      end: "70% 0",
+      scrub: 1
+    },
+    xPercent: -100,
+    opacity: 0
+  })
+
+  // sc-main 애니메이션 - btn-viewdemo클릭시 스크롤 이동
+  $('.sc-main .btn-viewdemo').on("click", function () {
+    const demosOffsetY = $('.sc-demos').offset().top;
+    $('html, body').animate({ scrollTop: demosOffsetY }, 1500); // 500ms는 애니메이션 시간
+  });
+
+  // sc-main 애니메이션 - btn-contact
+  gsap.to(".sc-main .btn-contact", {
+    scrollTrigger: {
+      // markers: true,
+      trigger: ".sc-main",
+      start: "0 0",
+      end: "70% 0",
+      scrub: 1
+    },
+    xPercent: 100,
+    opacity: 0
+  })
+
+  // sc-main 애니메이션 - btn-contact클릭시 스크롤 이동
+  $('.sc-main .btn-contact').on("click", function () {
+    const footerOffsetY = $('.footer').offset().top;
+    $('html, body').animate({ scrollTop: footerOffsetY }, 1000); // 500ms는 애니메이션 시간
+  });
 
   // sc-demos 애니메이션 - group-list
   $('.sc-demos .group-list').each(function () {
@@ -250,44 +288,6 @@ function initPC() {
       $(".sc-main .wrap-text").css({ opacity: 1, filter: "blur(0px)" });
     }
   );
-
-  // sc-main 애니메이션 - btn-viewdemo
-  gsap.to(".sc-main .btn-viewdemo", {
-    scrollTrigger: {
-      // markers: true,
-      trigger: ".sc-main",
-      start: "0 0",
-      end: "70% 0",
-      scrub: 1
-    },
-    xPercent: -100,
-    opacity: 0
-  })
-
-  // sc-main 애니메이션 - btn-viewdemo클릭시 스크롤 이동
-  $('.sc-main .btn-viewdemo').on("click", function () {
-    const demosOffsetY = $('.sc-demos').offset().top;
-    $('html, body').animate({ scrollTop: demosOffsetY }, 1500); // 500ms는 애니메이션 시간
-  });
-
-  // sc-main 애니메이션 - btn-contact
-  gsap.to(".sc-main .btn-contact", {
-    scrollTrigger: {
-      // markers: true,
-      trigger: ".sc-main",
-      start: "0 0",
-      end: "70% 0",
-      scrub: 1
-    },
-    xPercent: 100,
-    opacity: 0
-  })
-
-  // sc-main 애니메이션 - btn-contact클릭시 스크롤 이동
-  $('.sc-main .btn-contact').on("click", function () {
-    const footerOffsetY = $('.footer').offset().top;
-    $('html, body').animate({ scrollTop: footerOffsetY }, 1000); // 500ms는 애니메이션 시간
-  });
 }
 
 // =============================
