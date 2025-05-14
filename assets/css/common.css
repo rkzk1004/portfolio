@@ -101,6 +101,25 @@ li {
 	font-size: 22px;
 	color: var(--color-subtitle);
 }
+@media (max-width: 1024px) {
+	.common-title {
+		gap: 15px;
+	}
+	.common-title span {
+		font-size: 44px;
+	}
+	.common-title span:first-child {
+		font-size: 16px;
+	}
+}
+@media (max-width: 1023px) {
+	.common-title span {
+		font-size: 20px;
+	}
+	.common-title span:first-child {
+		font-size: 14px;
+	}
+}
 
 /* 노이즈 배경 */
 .deco-bg {
@@ -200,7 +219,7 @@ li {
 	width: 350px;
 	height: 350px;
 }
-@media (max-width: 1025px) {
+@media (max-width: 1024px) {
 	.deco-mouse {
 		display: none;
 	}
@@ -228,6 +247,11 @@ li {
 	text-transform: uppercase;
 	pointer-events: none;
 	opacity: 0;
+}
+@media (max-width: 1023px) {
+	.deco-intro span {
+		font-size: 22px;
+	}
 }
 
 /* css애니메이션 */
