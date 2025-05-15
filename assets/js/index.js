@@ -23,8 +23,9 @@ $(document).ready(function () {
     .set("body", { height: "auto", overflow: "auto" })
 
   // 공통 마우스 동그라미 - 따라다니는 효과
+  // $cursorE는 전역으로 쓰이기 때문에 밖에 빼놔야한다.
+  const $cursorEl = $('.deco-mouse');
   $(document).on('mousemove', function (e) {
-    const $cursorEl = $('.deco-mouse');
     const mouseX = e.clientX;
     const mouseY = e.clientY;
     gsap.to($cursorEl, {
@@ -220,7 +221,7 @@ $(document).ready(function () {
     })
     demosAnimaion
       .from(this, { opacity: 0, duration: 2.2, ease: "power4.out" }, "a")
-      .from($demosImg, { scale: 1.3, duration: 1.2 }, "a")
+      .from($demosImg, { scale: 1.3, duration: 1.2, ease: "power4.out" }, "a")
   })
 
   // sc-feature - group-list 애니메이션
