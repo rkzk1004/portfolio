@@ -23,8 +23,8 @@ $(document).ready(function () {
     .set("body", { height: "auto", overflow: "auto" })
 
   // 공통 마우스 동그라미 - 따라다니는 효과
-  const $cursorEl = $('.deco-mouse');
   $(document).on('mousemove', function (e) {
+    const $cursorEl = $('.deco-mouse');
     const mouseX = e.clientX;
     const mouseY = e.clientY;
     gsap.to($cursorEl, {
