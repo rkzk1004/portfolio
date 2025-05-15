@@ -43,20 +43,6 @@ function initCommon() {
     $("body").removeClass("toggle")
   })
 
-  // sc-main 애니메이션 - gruop-text
-  gsap.to(".sc-main h2 .group-text", {
-    scrollTrigger: {
-      // markers: true,
-      trigger: ".sc-main",
-      start: "0 0",
-      end: "50% 0",
-      scrub: 1,
-    },
-    stagger: 0.2,
-    yPercent: -80,
-    opacity: 0,
-  })
-
   // sc-main 애니메이션 - btn-viewdemo
   gsap.to(".sc-main .btn-viewdemo", {
     scrollTrigger: {
@@ -208,6 +194,20 @@ function initPC() {
       duration: 2.2,
       ease: "power4.out",
     })
+  })
+
+  // sc-main 애니메이션 - gruop-text
+  gsap.to(".sc-main h2 .group-text", {
+    scrollTrigger: {
+      // markers: true,
+      trigger: ".sc-main",
+      start: "0 0",
+      end: "50% 0",
+      scrub: 1,
+    },
+    stagger: 0.2,
+    yPercent: -80,
+    opacity: 0,
   })
 
   // sc-main 애니메이션 - 텍스트 hover시 opacity조절
