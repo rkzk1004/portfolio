@@ -7,10 +7,6 @@
 	--color-feature: #242424;
 	--bgColor-bright: #111;
 	--bgColor-dark: #0a0a0a;
-	font-synthesis: none;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 }
 ::selection {
 	background: var(--color-description);
@@ -80,7 +76,7 @@ li {
 	position: absolute;
 	width: 1px;
 	height: 1px;
-	clip-path: rect(0, 0, 0, 0);
+	clip-path: inset(0, 0, 0, 0);
 }
 
 /* h2 */
@@ -177,9 +173,8 @@ li {
 	font-size: 14px;
 	font-style: normal;
 	font-weight: 500;
-	transition: opacity 0.2s linea;
+	transition: opacity 0.2s;
 	opacity: 0;
-	font-optical-sizing: auto;
 }
 .deco-mouse .effect-contact {
 	overflow: hidden;
