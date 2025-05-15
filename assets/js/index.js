@@ -1,96 +1,7 @@
-// ==============================
-// 모든 해상도
-// ==============================
-function initCommon() {
+$(document).ready(function () {
   // gsap 스크롤트리거 등록
   gsap.registerPlugin(ScrollTrigger);
 
-  // 메뉴 애니메이션 - 온/오프 효과
-  const menuAnimation = gsap.timeline({ paused: true })
-  menuAnimation
-    .to(".menu", { opacity: 1, duration: 0.3, ease: "power4.out" })
-    .from(".menu li", { yPercent: 30, opacity: 0, stagger: 0.1, duration: 0.2, ease: "power4.out" })
-  $('.btn-menu').on("click", function () {
-    $(this).toggleClass("on");
-    $(".deco-mouse").toggleClass("toggle")
-    $("body").toggleClass("toggle");
-    $(".menu").toggleClass("toggle");
-    if ($(".btn-menu").hasClass("on")) {
-      menuAnimation.play()
-    } else {
-      menuAnimation.reverse()
-    }
-  })
-
-  // 메뉴 애니메이션 - hover시 투명도 조절
-  // ㄴ gsap 애니메이션과 css 속성이 겹치면 안되므로 스크립트로 구현
-  $(".menu li").each(function () {
-    $(this).hover(
-      function () {
-        $(this).siblings().find("a").css("opacity", "0.4")
-      },
-      function () {
-        $(this).siblings().find("a").css("opacity", "1")
-      }
-    );
-  });
-
-  // 메뉴 애니메이션 - 메뉴 클릭시 사라짐
-  $(".menu li").on("click", function () {
-    menuAnimation.reverse();
-    $(".btn-menu").removeClass("on")
-    $(".menu").removeClass("toggle")
-    $("body").removeClass("toggle")
-  })
-
-  // sc-main 애니메이션 - btn-viewdemo
-  gsap.to(".sc-main .btn-viewdemo", {
-    scrollTrigger: {
-      // markers: true,
-      trigger: ".sc-main",
-      start: "0 0",
-      end: "70% 0",
-      scrub: 1
-    },
-    xPercent: -100,
-    opacity: 0
-  })
-
-  // sc-main 애니메이션 - btn-viewdemo클릭시 스크롤 이동
-  $('.sc-main .btn-viewdemo').on("click", function () {
-    const demosOffsetY = $('.sc-demos').offset().top;
-    $('html, body').animate({ scrollTop: demosOffsetY }, 1500); // 500ms는 애니메이션 시간
-  });
-
-  // sc-main 애니메이션 - btn-contact
-  gsap.to(".sc-main .btn-contact", {
-    scrollTrigger: {
-      // markers: true,
-      trigger: ".sc-main",
-      start: "0 0",
-      end: "70% 0",
-      scrub: 1
-    },
-    xPercent: 100,
-    opacity: 0
-  })
-
-  // sc-main 애니메이션 - btn-contact클릭시 스크롤 이동
-  $('.sc-main .btn-contact').on("click", function () {
-    const footerOffsetY = $('.footer').offset().top;
-    $('html, body').animate({ scrollTop: footerOffsetY }, 1000); // 500ms는 애니메이션 시간
-  });
-
-  // 푸터 - btn-top
-  $('.btn-top').on('click', function () {
-    $('html,body').animate({ scrollTop: 0 }, 1000)
-  })
-}
-
-// ==============================
-// PC 전용
-// ==============================
-function initPC() {
   // 새로고침시 스크롤을 맨 위로 이동
   history.scrollRestoration = 'manual';
   $(window).on("beforeunload", function () {
@@ -196,7 +107,83 @@ function initPC() {
     })
   })
 
-  // sc-main 애니메이션 - gruop-text
+  // 메뉴 애니메이션 - 온/오프 효과
+  const menuAnimation = gsap.timeline({ paused: true })
+  menuAnimation
+    .to(".menu", { opacity: 1, duration: 0.3, ease: "power4.out" })
+    .from(".menu li", { yPercent: 30, opacity: 0, stagger: 0.1, duration: 0.2, ease: "power4.out" })
+  $('.btn-menu').on("click", function () {
+    $(this).toggleClass("on");
+    $(".deco-mouse").toggleClass("toggle")
+    $("body").toggleClass("toggle");
+    $(".menu").toggleClass("toggle");
+    if ($(".btn-menu").hasClass("on")) {
+      menuAnimation.play()
+    } else {
+      menuAnimation.reverse()
+    }
+  })
+
+  // 메뉴 애니메이션 - hover시 투명도 조절
+  // ㄴ gsap 애니메이션과 css 속성이 겹치면 안되므로 스크립트로 구현
+  $(".menu li").each(function () {
+    $(this).hover(
+      function () {
+        $(this).siblings().find("a").css("opacity", "0.4")
+      },
+      function () {
+        $(this).siblings().find("a").css("opacity", "1")
+      }
+    );
+  });
+
+  // 메뉴 애니메이션 - 메뉴 클릭시 사라짐
+  $(".menu li").on("click", function () {
+    menuAnimation.reverse();
+    $(".btn-menu").removeClass("on")
+    $(".menu").removeClass("toggle")
+    $("body").removeClass("toggle")
+  })
+
+  // sc-main - btn-viewdemo 애니메이션
+  gsap.to(".sc-main .btn-viewdemo", {
+    scrollTrigger: {
+      // markers: true,
+      trigger: ".sc-main",
+      start: "0 0",
+      end: "70% 0",
+      scrub: 1
+    },
+    xPercent: -100,
+    opacity: 0
+  })
+
+  // sc-main - btn-viewdemo 클릭시 스크롤 이동
+  $('.sc-main .btn-viewdemo').on("click", function () {
+    const demosOffsetY = $('.sc-demos').offset().top;
+    $('html, body').animate({ scrollTop: demosOffsetY }, 1500); // 500ms는 애니메이션 시간
+  });
+
+  // sc-main - btn-contact 애니메이션
+  gsap.to(".sc-main .btn-contact", {
+    scrollTrigger: {
+      // markers: true,
+      trigger: ".sc-main",
+      start: "0 0",
+      end: "70% 0",
+      scrub: 1
+    },
+    xPercent: 100,
+    opacity: 0
+  })
+
+  // sc-main - btn-contact 클릭시 스크롤 이동
+  $('.sc-main .btn-contact').on("click", function () {
+    const footerOffsetY = $('.footer').offset().top;
+    $('html, body').animate({ scrollTop: footerOffsetY }, 1000); // 500ms는 애니메이션 시간
+  });
+
+  // sc-main - group-text 애니메이션
   gsap.to(".sc-main h2 .group-text", {
     scrollTrigger: {
       // markers: true,
@@ -210,7 +197,7 @@ function initPC() {
     opacity: 0,
   })
 
-  // sc-main 애니메이션 - 텍스트 hover시 opacity조절
+  // sc-main - 중앙텍스트 hover시 opacity조절
   $(".sc-main .wrap-text").hover(
     function () {
       $(".sc-main .wrap-text").not(this).css({ opacity: 0.4, filter: "blur(3px)" });
@@ -220,7 +207,7 @@ function initPC() {
     }
   );
 
-  // sc-demos 애니메이션 - group-list
+  // sc-demos - group-list 애니메이션
   $('.sc-demos .group-list').each(function () {
     const $demosImg = $(this).find(".img");
     const demosAnimaion = gsap.timeline({
@@ -236,7 +223,7 @@ function initPC() {
       .from($demosImg, { scale: 1.3, duration: 1.2 }, "a")
   })
 
-  // sc-feature 애니메이션 - group-list
+  // sc-feature - group-list 애니메이션
   $('.sc-feature .group-list').each(function () {
     gsap.from($(this), {
       scrollTrigger: {
@@ -252,7 +239,7 @@ function initPC() {
     })
   })
 
-  // sc-feature 애니메이션 - and much more
+  // sc-feature - and much more 애니메이션
   const $featureBottomText = $(".sc-feature > p");
   gsap.from($featureBottomText, {
     scrollTrigger: {
@@ -267,7 +254,7 @@ function initPC() {
     ease: "power4.out"
   })
 
-  // 푸터 애니메이션 - group-contact
+  // 푸터 - group-contact 애니메이션
   const footerGroupContact = gsap.timeline({
     scrollTrigger: {
       // markers: true,
@@ -288,32 +275,9 @@ function initPC() {
       opacity: 0,
       duration: 0.8
     }, "a+=0.35")
-}
 
-// =============================
-// 모바일 전용
-// =============================
-function initMobile() {
-}
-
-// ===============================
-// 해상도에 따라 스크립트 실행
-// ===============================
-function responsiveScripts() {
-  initCommon();
-  if ($(window).width() >= 1025) {
-    initPC();
-  } else {
-    initMobile();
-  }
-}
-
-// =================================
-// 문서 준비 완료 시 실행
-// =================================
-$(document).ready(function () {
-  responsiveScripts();
-  $(window).resize(function () {
-    responsiveScripts();
-  });
+  // 푸터 - btn-top 클릭시 맨 위로 이동
+  $('.btn-top').on('click', function () {
+    $('html,body').animate({ scrollTop: 0 }, 1000)
+  })
 });
