@@ -25,22 +25,6 @@ function initCommon() {
     .from(".sc-main .btn-contact .group-el", { opacity: 0, duration: 0.3, ease: "power4.out" }, "b+=0.8")
     .set("body", { height: "auto", overflow: "auto" })
 
-  // 공통 h2 애니메이션
-  $('.common-title').each(function () {
-    gsap.from(this, {
-      scrollTrigger: {
-        // markers: true,
-        trigger: this,
-        start: "0 88%",
-        end: "0 0"
-      },
-      y: 100,
-      opacity: 0,
-      duration: 2.2,
-      ease: "power4.out",
-    })
-  })
-
   // 메뉴 애니메이션 - 온/오프 효과
   const menuAnimation = gsap.timeline({ paused: true })
   menuAnimation
@@ -131,75 +115,6 @@ function initCommon() {
     $('html, body').animate({ scrollTop: footerOffsetY }, 1000); // 500ms는 애니메이션 시간
   });
 
-  // sc-demos 애니메이션 - group-list
-  $('.sc-demos .group-list').each(function () {
-    const $demosImg = $(this).find(".img");
-    const demosAnimaion = gsap.timeline({
-      scrollTrigger: {
-        // markers: true,
-        trigger: this,
-        start: "0 90%",
-        end: "0 0"
-      }
-    })
-    demosAnimaion
-      .from(this, { opacity: 0, duration: 2.2, ease: "power4.out" }, "a")
-      .from($demosImg, { scale: 1.3, duration: 1.2 }, "a")
-  })
-
-  // sc-feature 애니메이션 - group-list
-  $('.sc-feature .group-list').each(function () {
-    gsap.from($(this), {
-      scrollTrigger: {
-        // markers: true,
-        trigger: $(this),
-        start: "0 88%",
-        end: "0 0"
-      },
-      y: 100,
-      opacity: 0,
-      duration: 1.2,
-      ease: "power4.out"
-    })
-  })
-
-  // sc-feature 애니메이션 - and much more
-  const $featureBottomText = $(".sc-feature > p");
-  gsap.from($featureBottomText, {
-    scrollTrigger: {
-      // markers: true,
-      trigger: $featureBottomText,
-      start: "0 88%",
-      end: "0 0"
-    },
-    y: 100,
-    opacity: 0,
-    duration: 2.2,
-    ease: "power4.out"
-  })
-
-  // 푸터 애니메이션 - group-contact
-  const footerGroupContact = gsap.timeline({
-    scrollTrigger: {
-      // markers: true,
-      trigger: ".footer .group-contact",
-      start: "0 70%",
-      end: "0 0"
-    },
-    ease: "power4.out"
-  })
-  footerGroupContact
-    .from("footer .wrap-contact", {
-      y: 50,
-      opacity: 0,
-      duration: 0.8
-    }, "a")
-    .from("footer .text", {
-      y: 50,
-      opacity: 0,
-      duration: 0.8
-    }, "a+=0.35")
-
   // 푸터 - btn-top
   $('.btn-top').on('click', function () {
     $('html,body').animate({ scrollTop: 0 }, 1000)
@@ -279,6 +194,22 @@ function initPC() {
     });
   });
 
+  // 공통 h2 애니메이션
+  $('.common-title').each(function () {
+    gsap.from(this, {
+      scrollTrigger: {
+        // markers: true,
+        trigger: this,
+        start: "0 88%",
+        end: "0 0"
+      },
+      y: 100,
+      opacity: 0,
+      duration: 2.2,
+      ease: "power4.out",
+    })
+  })
+
   // sc-main 애니메이션 - 텍스트 hover시 opacity조절
   $(".sc-main .wrap-text").hover(
     function () {
@@ -288,6 +219,75 @@ function initPC() {
       $(".sc-main .wrap-text").css({ opacity: 1, filter: "blur(0px)" });
     }
   );
+
+  // sc-demos 애니메이션 - group-list
+  $('.sc-demos .group-list').each(function () {
+    const $demosImg = $(this).find(".img");
+    const demosAnimaion = gsap.timeline({
+      scrollTrigger: {
+        // markers: true,
+        trigger: this,
+        start: "0 90%",
+        end: "0 0"
+      }
+    })
+    demosAnimaion
+      .from(this, { opacity: 0, duration: 2.2, ease: "power4.out" }, "a")
+      .from($demosImg, { scale: 1.3, duration: 1.2 }, "a")
+  })
+
+  // sc-feature 애니메이션 - group-list
+  $('.sc-feature .group-list').each(function () {
+    gsap.from($(this), {
+      scrollTrigger: {
+        // markers: true,
+        trigger: $(this),
+        start: "0 88%",
+        end: "0 0"
+      },
+      y: 100,
+      opacity: 0,
+      duration: 1.2,
+      ease: "power4.out"
+    })
+  })
+
+  // sc-feature 애니메이션 - and much more
+  const $featureBottomText = $(".sc-feature > p");
+  gsap.from($featureBottomText, {
+    scrollTrigger: {
+      // markers: true,
+      trigger: $featureBottomText,
+      start: "0 88%",
+      end: "0 0"
+    },
+    y: 100,
+    opacity: 0,
+    duration: 2.2,
+    ease: "power4.out"
+  })
+
+  // 푸터 애니메이션 - group-contact
+  const footerGroupContact = gsap.timeline({
+    scrollTrigger: {
+      // markers: true,
+      trigger: ".footer .group-contact",
+      start: "0 70%",
+      end: "0 0"
+    },
+    ease: "power4.out"
+  })
+  footerGroupContact
+    .from("footer .wrap-contact", {
+      y: 50,
+      opacity: 0,
+      duration: 0.8
+    }, "a")
+    .from("footer .text", {
+      y: 50,
+      opacity: 0,
+      duration: 0.8
+    }, "a+=0.35")
 }
 
 // =============================
